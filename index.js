@@ -5,7 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const errorHandler = require("#middlewares/errorHandler.js");
 const contructCors = require("#middlewares/corsHandler.js");
-const connection = require("#database/index.js");
+// const connection = require("#database/index.js");
 const router = require("#routes/index.js");
 
 const app = express();
@@ -25,10 +25,10 @@ app.use(express.json());
 app.use("/api", router);
 app.use(errorHandler);
 
-  console.log("[nfthost] connected to MongoDB");
-  app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log(`[nfthost] listening at port ${process.env.PORT || 8080}`);
   });
+
 
 // const { generateThirdPartyToken } = require('../middlewares/jwt');
 // console.log(generateThirdPartyToken({ origin: 'https://www.nfthost.app/' }))
