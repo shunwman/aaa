@@ -1058,12 +1058,7 @@ console.log("//getMappedSubdomains//")
     if (errors.length > 0)
       throw new Error(errors.map((err) => err.msg).join(", "));
 
-    const websites = await Website.find({
-      route: {
-        $exists: true,
-        $ne: "",
-      },
-    });
+
     const websites_app = await databases.listDocuments(
     '649943eabc8caa275f19',
     '64994436db28fb95e9be',
@@ -1074,7 +1069,7 @@ console.log("//getMappedSubdomains//")
     const mappedSubdomains_app = websites_app.documents.map((document) => {
       return { params: { siteRoute: document.route } };
     });
-  
+   console.log("mappedSubdomains_app:", mappedSubdomains_app  )
     res.status(200).json(mappedSubdomains_app );
   } catch (err) {
     next(err);
