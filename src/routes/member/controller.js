@@ -63,11 +63,11 @@ exports.walletLogin = async (req, res, next) => {
     });
 
     //mongodb
-    if (!tokenCount) {
-      await newToken.save();
+    // if (!tokenCount) {
+    //   await newToken.save();
  
-    }
-    else
+    // }
+    // else
       // await Token.updateOne(
       //   { address },
       //   {
