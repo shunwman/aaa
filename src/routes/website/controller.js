@@ -1052,7 +1052,7 @@ exports.updateSubscription = async (req, res, next) => {
 };
 
 exports.getMappedSubdomains = async (req, res, next) => {
-
+console.log("//getMappedSubdomains//")
   try {
     const errors = validationResult(req).array();
     if (errors.length > 0)
@@ -1071,13 +1071,6 @@ exports.getMappedSubdomains = async (req, res, next) => {
       sdk.Query.notEqual("route", [""])
     ]
     );
-
-    
-
-    const mappedSubdomains = websites.map((web) => {
-      return { params: { siteRoute: web.route } };
-    });
-
     const mappedSubdomains_app = websites_app.documents.map((document) => {
       return { params: { siteRoute: document.route } };
     });
