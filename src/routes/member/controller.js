@@ -107,7 +107,7 @@ exports.getMemberByAddress = async (req, res, next) => {
       throw new Error(errors.map((err) => err.msg).join(", "));
 
     const { address } = req.query;
-    const member = await Member.findOne({ address });
+    // const member = await Member.findOne({ address });
   
     const checkDoc = await databases.listDocuments(
       '649943eabc8caa275f19',
