@@ -314,7 +314,7 @@ exports.logout = async (req, res, next) => {
       [
         sdk.Query.equal('refreshToken', refreshToken)
       ])
-    await databases.deleteDocument(
+   const result = await databases.deleteDocument(
       '649943eabc8caa275f19',
       '6499442c6b747aee0aa3', 
       checkDoc.documents[0].$id
