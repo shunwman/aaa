@@ -305,8 +305,8 @@ exports.logout = async (req, res, next) => {
       throw new Error(errors.map((err) => err.msg).join(", "));
 
     const { refreshToken } = req.body;
-    // mongodb
-    const result = await Token.deleteOne({ refreshToken });
+    // // mongodb
+    // const result = await Token.deleteOne({ refreshToken });
     // appWrite 
     const checkDoc = await databases.listDocuments(
       '649943eabc8caa275f19',
@@ -333,7 +333,7 @@ exports.renewToken = async (req, res, next) => {
 
     const { refreshToken } = req.body;
     //mongodb
-    const tokenCount = await Token.count({ refreshToken });  
+    // const tokenCount = await Token.count({ refreshToken });  
     //appWrite 
     const checkDoc = await databases.listDocuments(
       '649943eabc8caa275f19',
@@ -343,9 +343,9 @@ exports.renewToken = async (req, res, next) => {
       ])
     const tokenCount_appWrite = checkDoc.documents[0].total
       //mongodb
-    if (!tokenCount) {
-      return res.status(403).json({ message: "Cannot fetch refresh token" });
-    }
+    // if (!tokenCount) {
+    //   return res.status(403).json({ message: "Cannot fetch refresh token" });
+    // }
       //appWrite 
     if (tokenCount_appWrite === 0) {
       return res.status(403).json({ message: "Cannot fetch refresh token" });
